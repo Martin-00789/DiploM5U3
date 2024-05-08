@@ -1,10 +1,21 @@
 <h1>LOGIN</h1>
 <div>
-  <form action="/admin/login" method="post">
-  <input type="text" id="inputUser" placeholder="Usuario" name="usuario">
-  <input type="password" id="inputPassword" placeholder="Contraseña" name="password">
-  <button type="submit">Ingresar</button>
-  </form>
+  <div class="container" style="margin: top 100px;"></div>
+  <div class="row">
+    <form action="/admin/login" method="post">
+      <div class="mb-3">
+        <div class="col-sm-10">
+          <input type="text" class="form-control" id="inputUser" placeholder="Usuario" name="usuario">
+        </div>
+      </div>
+      <div class="mb-3 row">
+        <div class="col-sm-10">
+          <input type="password" class="form-control" id="inputPassword" placeholder="Contraseña" name="password">
+        </div>
+      </div>
+      <button class="btn btn-primary" type="submit">Ingresar</button>
+    </form>
+  </div>
   {{#if error}}
   <p>Usuario y/o contraseña incorrectos.</p>
   {{/if}}
