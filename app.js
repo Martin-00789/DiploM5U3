@@ -3,6 +3,8 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var fileUpload = require("express-fileupload");
+// var hbs = require("hbs");
 
 require("dotenv").config();
 var session = require("express-session");
@@ -16,9 +18,17 @@ var adminRouter = require("./routes/admin/novedades");
 
 var app = express();
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
+const hbs = require('hbs');
+hbs.registerPartials(__dirname + '/views/partials', function (err) {});
 app.set('view engine', 'hbs');
+app.set("views", __dirname + "/views");
+
+app.use(express.static(__dirname + "/public"));
+
+// view engine setup
+// app.set('view engine', 'hbs');
+// app.set('views', path.join(__dirname, 'views'));
+
 
 app.use(logger('dev'));
 app.use(express.json());
@@ -45,6 +55,11 @@ secured = async (req, res, next) => {
     console.log(error);
   }
 }
+
+app.use(fileUpload({
+  useTempFiles: true,
+  tempFileDir: "/tmp"
+}));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
