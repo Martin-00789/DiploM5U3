@@ -1,11 +1,43 @@
-main{
-  background-color: yellow;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
+
+body{
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.holder{
+  max-width: 960px;
+  margin: 0 auto;
+  display: flex;
+}
+
+header{
+  background-color: #2ea154;
+  padding: 16px 0;
+}
+
+header h1 {
+  color: white;
+  font-size: 40px;
+  font-weight: 400;
+  font-style: italic;
+  display: inline-block;
+  position: relative;
+  bottom: -5px;
+  margin-left: 10px;
+}
+
 
 footer{
-  background-color: blue;
-}
-
-.hola{
-  background-color: aqua;
+  background-color: #ccc;
+  clear: both;
+  color: #333;
+  text-align: center;
+  padding: 50px 0;
+  margin-top: 20px;
 }
